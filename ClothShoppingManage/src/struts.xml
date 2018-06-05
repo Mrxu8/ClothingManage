@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- 打开动态方法调用 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    
+	<package name="manager" extends="struts-default"  abstract="false"  namespace="/admin">
+	    <action name="ManagerAction"  class="edu.abc.clothshoppingmanager.action.ManagerAction">
+			<result name="success">/main.jsp</result>
+			<result name="fail">/login.jsp</result>
+		</action>
+		
+	    <action name="CodeAction"  class="edu.abc.clothshoppingmanager.action.CodeAction">
+				
+		</action>
+	</package>   
+</struts>
