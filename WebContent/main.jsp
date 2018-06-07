@@ -30,6 +30,17 @@
 				<span>所有功能</span>
 				<ul>
 					<li data-options="state:'closed'">
+						<span>物流配送管理</span>
+						<ul>
+							<li>
+								<span>查看状态</span>
+							</li>
+							<li>
+								<span>分类查看</span>
+							</li>
+						</ul>
+					</li>
+					<li data-options="state:'closed'">
 						<span>订单管理</span>
 						<ul>
 							<li>
@@ -167,6 +178,13 @@
 					}
 					if(node.text=='删除订单'){
 						addPanel(node.text,"deleteOrder.jsp");
+					}
+					//========================================
+					if(node.text=='查看状态'){
+						addPanel(node.text,"showDistribution.jsp");
+					}
+					if(node.text=='分类查看'){
+						addPanel(node.text,"distributionClassify.jsp");
 					}
 					//========================================
 					if(node.text=='所有商品'){
