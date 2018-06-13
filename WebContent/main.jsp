@@ -30,6 +30,17 @@
 				<span>所有功能</span>
 				<ul>
 					<li data-options="state:'closed'">
+						<span>物流配送管理</span>
+						<ul>
+							<li>
+								<span>查看状态</span>
+							</li>
+							<li>
+								<span>分类查看</span>
+							</li>
+						</ul>
+					</li>
+					<li data-options="state:'closed'">
 						<span>订单管理</span>
 						<ul>
 							<li>
@@ -130,14 +141,14 @@
 	</div>
 	<!-- 中间主要内容显示部分 -->
 	<div data-options="region:'center'">
-		<div id="main" class="easyui-tabs" style="width:100%;height:100%">
-			<div title="系统通知" data-options="iconCls:'icon-help',closable:true" style="padding:10px">
+		<div id="main" class="easyui-tabs" style="width:98%;height:98%">
+			<div title="系统通知" data-options="iconCls:'icon-help',closable:true" style="padding:10px;width:95%;height:95%";>
 					<ul class="easyui-datalist" title="公司消息" lines="true" style="width:100%;height:100%">
 						<li value="AL">Alabama</li>
 						<li value="AK">Alaska</li>
 						<li value="AZ">Arizona</li>
 					</ul>
-				</div>
+			</div>
 		</div>
 	</div>
 	
@@ -167,6 +178,13 @@
 					}
 					if(node.text=='删除订单'){
 						addPanel(node.text,"deleteOrder.jsp");
+					}
+					//========================================
+					if(node.text=='查看状态'){
+						addPanel(node.text,"showDistribution.jsp");
+					}
+					if(node.text=='分类查看'){
+						addPanel(node.text,"distributionClassify.jsp");
 					}
 					//========================================
 					if(node.text=='所有商品'){
