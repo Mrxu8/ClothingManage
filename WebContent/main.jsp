@@ -141,14 +141,14 @@
 	</div>
 	<!-- 中间主要内容显示部分 -->
 	<div data-options="region:'center'">
-		<div id="main" class="easyui-tabs" style="width:100%;height:100%">
-			<div title="系统通知" data-options="iconCls:'icon-help',closable:true" style="padding:10px">
+		<div id="main" class="easyui-tabs" style="width:98%;height:98%">
+			<div title="系统通知" data-options="iconCls:'icon-help',closable:true" style="padding:10px;width:95%;height:95%";>
 					<ul class="easyui-datalist" title="公司消息" lines="true" style="width:100%;height:100%">
 						<li value="AL">Alabama</li>
 						<li value="AK">Alaska</li>
 						<li value="AZ">Arizona</li>
 					</ul>
-				</div>
+			</div>
 		</div>
 	</div>
 	

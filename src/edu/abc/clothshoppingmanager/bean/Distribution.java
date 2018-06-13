@@ -2,78 +2,68 @@ package edu.abc.clothshoppingmanager.bean;
 
 import java.util.ArrayList;
 
-public class Distribution {//这是物流管理的javabean
+public class Distribution {//这是物流管理的订单javabean
 
-	private int goodsid;
-	private String goodsimg;
-	private int count;
-	private float price;
-	private int pricestate;
-	private int distribution;
-	private ArrayList<String> distributionstate;
+	private int orderid;
+	private int userid;
+	private float payment;
+	private int paymenttype;
+	private int status;
+	private String note;
 	
-	public int getGoodsid() {
-		return goodsid;
+	public int getOrderid() {
+		return orderid;
 	}
-	public void setGoodsid(int goodsid) {
-		this.goodsid = goodsid;
+	public void setOrderid(int orderid) {
+		this.orderid = orderid;
 	}
-	public String getGoodsimg() {
-		return goodsimg;
+	public int getUserid() {
+		return userid;
 	}
-	public void setGoodsimg(String goodsimg) {
-		this.goodsimg = goodsimg;
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
-	public int getCount() {
-		return count;
+	public float getPayment() {
+		return payment;
 	}
-	public void setCount(int count) {
-		this.count = count;
+	public void setPayment(float payment) {
+		this.payment = payment;
 	}
-	public float getPrice() {
-		return price;
+	public int getPaymenttype() {
+		return paymenttype;
 	}
-	public void setPrice(float price) {
-		this.price = price;
+	public void setPaymenttype(int paymenttype) {
+		this.paymenttype = paymenttype;
 	}
-	public int getPricestate() {
-		return pricestate;
+	public int getStatus() {
+		return status;
 	}
-	public void setPricestate(int pricestate) {
-		this.pricestate = pricestate;
+	public void setStatus(int status) {
+		this.status = status;
 	}
-	public int getDistribution() {
-		return distribution;
+	public String getNote() {
+		return note;
 	}
-	public void setDistribution(int distribution) {
-		this.distribution = distribution;
-	}
-	public ArrayList<String> getDistributionstate() {
-		return distributionstate;
-	}
-	public void setDistributionstate(ArrayList<String> distributionstate) {
-		this.distributionstate = distributionstate;
+	public void setNote(String note) {
+		this.note = note;
 	}
 	
 	public Distribution() {
 		super();
 	}
-	public Distribution(int goodsid, String goodsimg, int count, float price, int pricestate, int distribution,
-			ArrayList<String> distributionstate) {
+	public Distribution(int orderid, int userid, float payment, int paymenttype, int status, String note) {
 		super();
-		this.goodsid = goodsid;
-		this.goodsimg = goodsimg;
-		this.count = count;
-		this.price = price;
-		this.pricestate = pricestate;
-		this.distribution = distribution;
-		this.distributionstate = distributionstate;
+		this.orderid = orderid;
+		this.userid = userid;
+		this.payment = payment;
+		this.paymenttype = paymenttype;
+		this.status = status;
+		this.note = note;
 	}
 	
 	@Override
 	public String toString() {
-		return "Distribution [goodsid=" + goodsid + ", goodsimg=" + goodsimg + ", count=" + count + ", price=" + price
-				+ ", pricestate=" + pricestate + ", distribution=" + distribution + ", distributionstate="
-				+ distributionstate + "]";
+		return "Distribution [orderid=" + orderid + ", userid=" + userid + ", payment=" + payment + ", paymenttype="
+				+ paymenttype + ", status=" + status + ", note=" + note + "]";
 	}
 }

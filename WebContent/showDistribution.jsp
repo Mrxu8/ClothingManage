@@ -10,24 +10,61 @@
 	<link rel="stylesheet" type="text/css" href="css/demo.css">
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="js/datagrid-detailview.js"></script>
 </head>
 <body style="margin: 5px; padding: 0px;">
-	<table id="wl" title="物流状态" style="border:1px solid black; width:100%;height:500px;margin: 0px;"
-			data-options="rownumbers:true,singleSelect:true,pagination:true,url:'admin/DistributionAction!listDistributionByPage.action',method:'get'">
+	<table id="dg" style="width:100%;height:530px" title="订单-商品物流信息"
+		data-options="pagination:true,singleSelect:true,rownumbers:true,fitColumns:true,
+		url:'admin/DistributionAction!listDistributionByPage.action?count=10',method:'get'">
 		<thead>
 			<tr>
-				<th data-options="field:'userid',width:40,align:'left'">商品编号</th>
-				<th data-options="field:'username',width:120,align:'left'">商品图片</th>
-				<th data-options="field:'nickname',width:40,align:'left'">数量</th>
-				<th data-options="field:'sex',width:40,align:'left'">价格</th>
-				<th data-options="field:'age',width:60,align:'left'">付费状态</th>
-				<th data-options="field:'job',width:60,align:'left'">配送方式</th>
-				<th data-options="field:'image',width:60,align:'left'">配送状态</th>
-				<th data-options="field:'image',width:120,align:'left'">包裹物流</th>
+				<th id="order_id" field="order_id" align="center" width="40">订单编号</th>
+				<th field="user_id" align="center" width="40">购买用户</th>
+				<th field="payment" align="left" width="40">付款金额</th>
+				<th field="status" align="center" width="40">付款状态</th>
+				<th field="payment_type" align="center" width="40">付款方式</th>
+				<th field="note" width="80" align="left">用户备注</th>
 			</tr>
 		</thead>
-			<tr><th>001</th><th><img alt="" src="images/..."></th><th>3</th><th>66.6</th>
-			<th>已付款</th><th>韵达快递</th><th>发货中</th><th>商家已发货</th></tr>
 	</table>
+
+<script type="text/javascript">
+$('#dg').datagrid({
+	view: detailview,
+	detailFormatter:function(index,row){
+		return '<div style="padding:2px"><table class="ddv"></table></div>';
+	},
+	onExpandRow: function(index,row){
+		var ddv = $(this).datagrid('getRowDetail',index).find('table.ddv');
+		ddv.datagrid({
+			url:'admin/DistributionAction!distributionByOrder.action?orderid='+(index+1)+'&itemid='+row.itemid,
+			fitColumns:true,
+			singleSelect:true,
+			rownumbers:true,
+			loadMsg:'',
+			height:'auto',
+			columns:[[
+				{field:'goods_id',title:'商品编号',width:40},
+				{field:'goods_name',title:'商品名称',width:40},
+				{field:'picture',title:'商品图片',width:50},
+				{field:'price',title:'商品价格',width:40},
+				{field:'count',title:'购买数量',width:40},
+				{field:'total',title:'合计',width:40},
+				{field:'distribution',title:'配送物流',width:40},
+				{field:'distributions',title:'物流信息',width:60}
+			]],
+			onResize:function(){
+				$('#dg').datagrid('fixDetailRowHeight',index);
+			},
+			onLoadSuccess:function(){
+				setTimeout(function(){
+					$('#dg').datagrid('fixDetailRowHeight',index);
+				},0);
+			}
+		});
+		$('#dg').datagrid('fixDetailRowHeight',index);
+	}
+});
+</script>
 </body>
 </html>
